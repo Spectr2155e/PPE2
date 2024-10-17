@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         static void Main()
         {
 
-            databaseManager = new DatabaseManager("CPUMarket");
+            databaseManager = new DatabaseManager("CPUMarket", "root", "root");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

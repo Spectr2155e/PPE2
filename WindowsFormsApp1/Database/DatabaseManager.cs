@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,19 +12,23 @@ namespace WindowsFormsApp1.Database
     {
 
         private String _databaseName;
+        private String _user;
+        private String _password;
         private String _uri;
-        private SqlConnection _connection;
+        private MySqlConnection _connection;
 
-        public DatabaseManager(String databaseName)
+        public DatabaseManager(String databaseName, String user, String password)
         {
             this._databaseName = databaseName;
-            this._uri = @"Server=.\SQLEXPRESS;Database="+databaseName+";Trusted_Connection=True;";
+            this._user = user;
+            this._password = password;
+            this._uri = @"Server=localhost;Database="+ this._databaseName +";Uid="+ this._user +";Pwd="+this._password+";";
             startConnection();
         }
 
         private void startConnection()
         {
-            this._connection = new SqlConnection(this._uri);
+            this._connection = new MySqlConnection(this._uri);
             this._connection.Open();
         }
 
@@ -32,15 +37,15 @@ namespace WindowsFormsApp1.Database
             this._connection.Close();
         }
 
-        public SqlDataReader getResultOfRequest(String sql)
+        public MySqlDataReader getResultOfRequest(String sql)
         {
-            SqlCommand sqlCommand = new SqlCommand(sql, this._connection);
+            MySqlCommand sqlCommand = new MySqlCommand(sql, this._connection);
             return sqlCommand.ExecuteReader();
         }
 
         public void executeRequest(String sql)
         {
-            SqlCommand sqlCommand = new SqlCommand(sql, this._connection);
+            MySqlCommand sqlCommand = new MySqlCommand(sql, this._connection);
             sqlCommand.ExecuteNonQueryAsync();
         }
     }
