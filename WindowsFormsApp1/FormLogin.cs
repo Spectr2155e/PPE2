@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,34 @@ namespace WindowsFormsApp1
 {
     public partial class FormLogin : Form
     {
+
+        public static int choice;
+
+        private void switchConnectionMode(int choiceA)
+        {
+            switch (choiceA)
+            {
+                case 1:
+                    choice = 0;
+                    LabelLogin.Text = "Se connecter";
+                    button1.Text = "Se connecter";
+                    textBox1.Visible = false;
+                    pictureBox4.Visible = false;
+                    label4.Visible = false;
+                    label3.Text = "Créer un compte";
+                    break;
+                case 0:
+                    choice = 1;
+                    LabelLogin.Text = "S'enregistrer";
+                    button1.Text = "S'enregistrer";
+                    textBox1.Visible = true;
+                    pictureBox4.Visible = true;
+                    label4.Visible = true;
+                    label3.Text = "J'ai déjà un compte";
+                    break;
+            }
+        }
+
         public FormLogin()
         {
             InitializeComponent();
@@ -22,43 +51,26 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*string strsql = "select c.Nom as 'Nom CPU'," +
-                    " m.Nom as 'nom marque', mo.Nom as 'nom modèle'" +
-                    " from dbo.CPU c join dbo.Marque m on" +
-                    " c.ID_Marque = m.ID_MARQUE join dbo.Modele mo " +
-                    "on c.ID_Modele = mo.ID_MODELE";
-            SqlDataReader rd = Program.databaseManager.getResultOfRequest(strsql);
-
-            while(rd.Read() == true)
+            if(textBoxLoginPassword.Text == null || !(textBoxLoginPassword.Text.Length >= 6))
             {
-                MessageBox.Show(rd["Nom CPU"].ToString());
-
-                listBox1.Items.Add(rd["Nom CPU"].ToString());
-            }*/
-
-            string name = "Spectr2155e";
-            string sql = "select * from Users WHERE USER_NAME = '"+name+"'";
-            MySqlDataReader rd = Program.databaseManager.getResultOfRequest(sql);
-
-            MessageBox.Show(Utils.Utils.sha256_hash(textBoxLoginPassword.Text));
-
-            while(rd.Read() == true)
-            {
-                MessageBox.Show(rd["USER_PASSWORD"].ToString());
+                MessageBox.Show("Veuillez entrer un mot de passe de plus de 6 caractères et valide.",
+                    "Erreur d'authentification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            rd.Close();
+
+            switch (choice)
+            {
+                case 0:
+                    Authentication.login.tryLogin(textBoxLoginUserName.Text, textBoxLoginPassword.Text);
+                    break;
+                case 1:
+                    Authentication.register.tryRegister(textBoxLoginUserName.Text, textBoxLoginPassword.Text, textBox1.Text);
+                    break;
+
+            }
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneButton1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -97,6 +109,21 @@ namespace WindowsFormsApp1
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            switchConnectionMode(choice);
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            choice = 0;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

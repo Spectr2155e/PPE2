@@ -26,5 +26,10 @@ namespace WindowsFormsApp1.Utils
             return Sb.ToString();
         }
 
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
     }
 }

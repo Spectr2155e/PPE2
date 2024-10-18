@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.Database
         public void executeRequest(String sql)
         {
             MySqlCommand sqlCommand = new MySqlCommand(sql, this._connection);
-            sqlCommand.ExecuteNonQueryAsync();
+            sqlCommand.ExecuteNonQuery();
         }
     }
 }

@@ -146,6 +146,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\register.cs" />
+    <Compile Include="Authentication\login.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="FormAccueil.cs">
       <SubType>Form</SubType>
