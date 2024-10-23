@@ -10,7 +10,7 @@ namespace WindowsFormsApp1.Authentication
 {
     internal class register
     {
-        public static Boolean tryRegister(string username, string password, string key)
+        public static Boolean tryRegister(string username, string password, string key, FormLogin form)
         {
             MySqlDataReader reader;
             string sql;
@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.Authentication
 
             while (reader.Read() == true)
             {
-                MessageBox.Show("Création de compte impossible, un utilisateur possède déjà ce nom.",
+                MessageBox.Show("Création de compte impossible, un utilisateur possède déjà cette adresse mail.",
                 "Erreur d'inscription",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 reader.Close();
@@ -43,8 +43,11 @@ namespace WindowsFormsApp1.Authentication
                 password = Utils.Utils.sha256_hash(password);
                 string sqlCreationUser = string.Format("INSERT INTO Users(USER_NAME, USER_PASSWORD, CREATION_DATE, LAST_CONNECTION, ORGANISATION_ID)" +
                 " VALUES('{0}', '{1}', '{2}', '{3}', '{4}')", username, password, now, now, reader["ID"]);
-                Console.Write(sqlCreationUser);
                 reader.Close();
+                FormAccueil formAccueil = new FormAccueil();
+                form.Hide();
+                formAccueil.ShowDialog();
+                form.Close();
                 Program.databaseManager.executeRequest(sqlCreationUser);
                 return true;
             }

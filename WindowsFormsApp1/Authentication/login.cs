@@ -13,9 +13,9 @@ namespace WindowsFormsApp1.Authentication
 {
     internal class login
     {
-        public static Boolean tryLogin(string username, string password)
+        public static Boolean tryLogin(string username, string password, FormLogin form)
         {
-            string sql = string.Format("select * from Users WHERE USER_NAME = '{0}'", username);
+            string sql = string.Format("select USER_PASSWORD, users.ID as ID, organisations.ID as ORGA_ID, USER_NAME from users join organisations on users.ORGANISATION_ID = organisations.ID WHERE USER_NAME = '{0}'", username);
 
             MySqlDataReader reader = Program.databaseManager.getResultOfRequest(sql);
 
@@ -24,7 +24,12 @@ namespace WindowsFormsApp1.Authentication
                 if (reader["USER_PASSWORD"].Equals(Utils.Utils.sha256_hash(password)))
                 {
                     int id = (int)reader["ID"];
+                    Program.currentUser = new Objects.User(username, password, reader["ORGA_ID"].ToString());
                     reader.Close();
+                    FormAccueil formAccueil = new FormAccueil();
+                    form.Hide();
+                    formAccueil.ShowDialog();
+                    form.Close();
                     loginUser(id);
                     return true;
                 }
@@ -45,6 +50,7 @@ namespace WindowsFormsApp1.Authentication
                 "Authentification réussi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             Program.databaseManager.executeRequest(sql);
+
         }
     }
 }

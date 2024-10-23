@@ -51,7 +51,14 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBoxLoginPassword.Text == null || !(textBoxLoginPassword.Text.Length >= 6))
+            if (textBoxLoginUserName.Text == "" || !Utils.Utils.IsValidMail(textBoxLoginUserName.Text))
+            {
+                MessageBox.Show("Veuillez entrer une adresse mail valide.",
+                    "Erreur d'authentification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (textBoxLoginPassword.Text == "" || !(textBoxLoginPassword.Text.Length >= 6))
             {
                 MessageBox.Show("Veuillez entrer un mot de passe de plus de 6 caractères et valide.",
                     "Erreur d'authentification", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,10 +68,10 @@ namespace WindowsFormsApp1
             switch (choice)
             {
                 case 0:
-                    Authentication.login.tryLogin(textBoxLoginUserName.Text, textBoxLoginPassword.Text);
+                    Authentication.login.tryLogin(textBoxLoginUserName.Text, textBoxLoginPassword.Text, this);
                     break;
                 case 1:
-                    Authentication.register.tryRegister(textBoxLoginUserName.Text, textBoxLoginPassword.Text, textBox1.Text);
+                    Authentication.register.tryRegister(textBoxLoginUserName.Text, textBoxLoginPassword.Text, textBox1.Text, this);
                     break;
 
             }
@@ -124,6 +131,24 @@ namespace WindowsFormsApp1
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            FormAccueil formAccueil = new FormAccueil();
+            this.Hide();
+            formAccueil.ShowDialog();
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
         {
 
         }

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Database
 {
@@ -47,6 +48,42 @@ namespace WindowsFormsApp1.Database
         {
             MySqlCommand sqlCommand = new MySqlCommand(sql, this._connection);
             sqlCommand.ExecuteNonQuery();
+        }
+
+        public void insertToTable(string table, List<string> parametersList, List<string> valuesList)
+        {
+            string parameters = "";
+            string values = "";
+
+            int parametersListLength = parametersList.Count;
+            int i = 0;
+            foreach (string parameter in parametersList)
+            {
+                if (i == parametersListLength - 1)
+                {
+                    parameters += parameter;
+                    break;
+                }
+                parameters += parameter + ", ";
+                i++;
+            }
+
+            int valuesListLength = parametersList.Count;
+            int i2 = 0;
+            foreach (string value in valuesList)
+            {
+                if (i2 == valuesListLength - 1)
+                {
+                    values += "'"+value+"'";
+                    break;
+                }
+                values += "'" + value + "', ";
+                i2++;
+            }
+
+            string sql = string.Format("INSERT INTO {0}({1}) VALUES({2})", table, parameters, values);
+            
+            executeRequest(sql);
         }
     }
 }

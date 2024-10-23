@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Database;
+using WindowsFormsApp1.Objects;
 
 namespace WindowsFormsApp1
 {
@@ -14,6 +15,7 @@ namespace WindowsFormsApp1
         /// </summary>
         
         public static DatabaseManager databaseManager;
+        public static User currentUser;
 
         static void Main()
         {
