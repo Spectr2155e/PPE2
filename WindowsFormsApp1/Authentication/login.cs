@@ -15,16 +15,19 @@ namespace WindowsFormsApp1.Authentication
     {
         public static Boolean tryLogin(string username, string password, FormLogin form)
         {
-            string sql = string.Format("select USER_PASSWORD, users.ID as ID, organisations.ID as ORGA_ID, USER_NAME from users join organisations on users.ORGANISATION_ID = organisations.ID WHERE USER_NAME = '{0}'", username);
+            string sql = "select USER_PASSWORD, users.ID as ID, organisations.ID as ORGA_ID, USER_NAME from users join organisations on users.ORGANISATION_ID = organisations.ID WHERE USER_NAME = @username";
 
-            MySqlDataReader reader = Program.databaseManager.getResultOfRequest(sql);
+            MySqlCommand command = new MySqlCommand(sql, Program.databaseManager.getConnection());
+            command.Parameters.AddWithValue("username", username);
+            
+            MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read() == true)
             {
                 if (reader["USER_PASSWORD"].Equals(Utils.Utils.sha256_hash(password)))
                 {
                     int id = (int)reader["ID"];
-                    Program.currentUser = new Objects.User(username, password, reader["ORGA_ID"].ToString());
+                    Program.currentUser = new Objects.User(username, password, Int32.Parse(reader["ORGA_ID"].ToString()));
                     reader.Close();
                     FormAccueil formAccueil = new FormAccueil();
                     form.Hide();
@@ -44,12 +47,18 @@ namespace WindowsFormsApp1.Authentication
         public static void loginUser(int id)
         {
             string timestamp = Utils.Utils.GetTimestamp(DateTime.Now);
-            string sql = string.Format("UPDATE Users SET LAST_CONNECTION = '{0}' WHERE ID = '{1}'", timestamp, id);
+            string sql = "UPDATE Users SET LAST_CONNECTION = @timestamp WHERE ID = @id";
+
+            MySqlCommand command = new MySqlCommand(sql, Program.databaseManager.getConnection());
+            command.Parameters.AddWithValue("timestamp", timestamp);
+            command.Parameters.AddWithValue("id", id);
+
             MessageBox.Show(sql);
             MessageBox.Show("Connecté avec succès !",
                 "Authentification réussi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Program.databaseManager.executeRequest(sql);
+            
+            command.ExecuteNonQuery();
 
         }
     }

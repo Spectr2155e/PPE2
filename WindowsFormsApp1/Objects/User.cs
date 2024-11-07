@@ -11,9 +11,9 @@ namespace WindowsFormsApp1.Objects
     {
         private string _mail;
         private string _password;
-        private string _organisation;
+        private int _organisation;
 
-        public User(string mail, string password, string organisation)
+        public User(string mail, string password, int organisation)
         {
             _mail = mail;
             _password = password;
@@ -21,8 +21,8 @@ namespace WindowsFormsApp1.Objects
         }
 
         public string Mail { get { return _mail; } set { this._mail = value; } }
-        public string Password { get { return _password; } set { this._organisation = value; } }
-        public string Organisation { get { return _organisation; } set { this._organisation = value; } }
+        public string Password { get { return _password; } set { this._password = value; } }
+        public int Organisation { get { return _organisation; } set { this._organisation = value; } }
 
     }
 }

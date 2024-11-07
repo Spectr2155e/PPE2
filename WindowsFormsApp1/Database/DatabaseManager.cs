@@ -85,5 +85,11 @@ namespace WindowsFormsApp1.Database
             
             executeRequest(sql);
         }
+
+        public MySqlConnection getConnection()
+        {
+            return _connection;
+        }
+
     }
 }

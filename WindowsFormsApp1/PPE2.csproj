@@ -167,6 +167,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUserInformations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserInformations.Designer.cs">
+      <DependentUpon>FormUserInformations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objects\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserInformations.resx">
+      <DependentUpon>FormUserInformations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

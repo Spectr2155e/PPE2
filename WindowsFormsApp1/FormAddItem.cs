@@ -46,16 +46,23 @@ namespace WindowsFormsApp1
         private void buttonAddItem_Click(object sender, EventArgs e)
         {
             string name = textBox1.Text;
-            string quantity = numericUpDown1.Value.ToString();
-            string weight = numericUpDown2.Value.ToString();
+            int quantity = (int) numericUpDown1.Value;
+            int weight = (int) numericUpDown2.Value;
             string addingDate = Utils.Utils.GetTimestamp(DateTime.Now);
-            string category = getIdOfCategory(comboBox1.SelectedItem.ToString());
-            string organisation = Program.currentUser.Organisation;
+            int category =  (int) Int32.Parse(getIdOfCategory(comboBox1.SelectedItem.ToString()));
+            int organisation = Program.currentUser.Organisation;
 
-            string sql = string.Format("INSERT INTO items(NAME, QUANTITY, WEIGHT, ADDING_DATE, CATEGORY_ID, ORGANISATION_ID) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-                name, quantity, weight, addingDate, category, organisation);
+            string sql = "INSERT INTO items(NAME, QUANTITY, WEIGHT, ADDING_DATE, CATEGORY_ID, ORGANISATION_ID) VALUES(@name, @quantity, @weight, @adding, @category, @organisation)";
 
-            Program.databaseManager.executeRequest(sql);
+            MySqlCommand command = new MySqlCommand(sql, Program.databaseManager.getConnection());
+            command.Parameters.AddWithValue("name", name);
+            command.Parameters.AddWithValue("quantity", quantity);
+            command.Parameters.AddWithValue("weight", weight);
+            command.Parameters.AddWithValue("adding", addingDate);
+            command.Parameters.AddWithValue("category", category);
+            command.Parameters.AddWithValue("organisation", organisation);
+
+            command.ExecuteNonQuery();
 
             returnToAccueilScreen();
             
@@ -85,6 +92,11 @@ namespace WindowsFormsApp1
             this.Hide();
             formAccueil.ShowDialog();
             this.Close();
+        }
+
+        private void FormAddItem_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            returnToAccueilScreen();
         }
     }
 }

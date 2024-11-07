@@ -84,6 +84,7 @@
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.testToolStripMenuItem.Text = "Accéder à mes informations";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // seDéconnecterToolStripMenuItem
             // 
