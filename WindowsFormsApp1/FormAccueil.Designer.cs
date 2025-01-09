@@ -31,9 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccueil));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MonCompte = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seDéconnecterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelAdministrateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gérerLesUtilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gérerLesOrganisationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Nom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantité = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,7 +46,7 @@
             this.buttonActualiser = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelMain = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,37 +64,63 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem});
+            this.MonCompte,
+            this.panelAdministrateurToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 42);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fichierToolStripMenuItem
+            // MonCompte
             // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MonCompte.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem,
             this.seDéconnecterToolStripMenuItem});
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.fichierToolStripMenuItem.Text = "Mon Compte";
-            this.fichierToolStripMenuItem.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
+            this.MonCompte.Name = "MonCompte";
+            this.MonCompte.Size = new System.Drawing.Size(176, 38);
+            this.MonCompte.Text = "Mon Compte";
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.testToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(517, 44);
             this.testToolStripMenuItem.Text = "Accéder à mes informations";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // seDéconnecterToolStripMenuItem
             // 
             this.seDéconnecterToolStripMenuItem.Name = "seDéconnecterToolStripMenuItem";
-            this.seDéconnecterToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.seDéconnecterToolStripMenuItem.Size = new System.Drawing.Size(517, 44);
             this.seDéconnecterToolStripMenuItem.Text = "Se déconnecter";
             this.seDéconnecterToolStripMenuItem.Click += new System.EventHandler(this.seDéconnecterToolStripMenuItem_Click);
+            // 
+            // panelAdministrateurToolStripMenuItem
+            // 
+            this.panelAdministrateurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gérerLesUtilisateursToolStripMenuItem,
+            this.gérerLesOrganisationsToolStripMenuItem});
+            this.panelAdministrateurToolStripMenuItem.Name = "panelAdministrateurToolStripMenuItem";
+            this.panelAdministrateurToolStripMenuItem.Size = new System.Drawing.Size(252, 38);
+            this.panelAdministrateurToolStripMenuItem.Text = "Panel administrateur";
+            // 
+            // gérerLesUtilisateursToolStripMenuItem
+            // 
+            this.gérerLesUtilisateursToolStripMenuItem.Name = "gérerLesUtilisateursToolStripMenuItem";
+            this.gérerLesUtilisateursToolStripMenuItem.Size = new System.Drawing.Size(390, 44);
+            this.gérerLesUtilisateursToolStripMenuItem.Text = "Gérer les utilisateurs";
+            this.gérerLesUtilisateursToolStripMenuItem.Click += new System.EventHandler(this.gérerLesUtilisateursToolStripMenuItem_Click);
+            // 
+            // gérerLesOrganisationsToolStripMenuItem
+            // 
+            this.gérerLesOrganisationsToolStripMenuItem.Name = "gérerLesOrganisationsToolStripMenuItem";
+            this.gérerLesOrganisationsToolStripMenuItem.Size = new System.Drawing.Size(390, 44);
+            this.gérerLesOrganisationsToolStripMenuItem.Text = "Gérer les organisations";
+            this.gérerLesOrganisationsToolStripMenuItem.Click += new System.EventHandler(this.gérerLesOrganisationsToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -110,7 +139,6 @@
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // Nom
             // 
@@ -149,7 +177,7 @@
             this.buttonActualiser.TabIndex = 5;
             this.buttonActualiser.Text = "Actualiser";
             this.buttonActualiser.UseVisualStyleBackColor = true;
-            this.buttonActualiser.Click += new System.EventHandler(this.button1_Click);
+            this.buttonActualiser.Click += new System.EventHandler(this.buttonActualiser_Click);
             // 
             // buttonSupprimer
             // 
@@ -169,27 +197,26 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Ajouter";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
-            // label1
+            // labelMain
             // 
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(93, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(911, 81);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelMain.BackColor = System.Drawing.Color.Black;
+            this.labelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMain.ForeColor = System.Drawing.Color.White;
+            this.labelMain.Location = new System.Drawing.Point(93, 82);
+            this.labelMain.Name = "labelMain";
+            this.labelMain.Size = new System.Drawing.Size(911, 81);
+            this.labelMain.TabIndex = 8;
+            this.labelMain.Text = "label";
+            this.labelMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormAccueil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1084, 601);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelMain);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonActualiser);
@@ -216,7 +243,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MonCompte;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seDéconnecterToolStripMenuItem;
         private System.Windows.Forms.ListView listView1;
@@ -228,6 +255,9 @@
         private System.Windows.Forms.Button buttonActualiser;
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelMain;
+        private System.Windows.Forms.ToolStripMenuItem panelAdministrateurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gérerLesUtilisateursToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gérerLesOrganisationsToolStripMenuItem;
     }
 }

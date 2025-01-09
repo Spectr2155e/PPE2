@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Objects;
 
 namespace WindowsFormsApp1.Authentication
 {
@@ -28,6 +29,7 @@ namespace WindowsFormsApp1.Authentication
                 {
                     int id = (int)reader["ID"];
                     Program.currentUser = new Objects.User(username, password, Int32.Parse(reader["ORGA_ID"].ToString()));
+                    new Logs(Utils.Utils.GetTimestamp(DateTime.Now) + " - Connexion réussi pour l'utilisateur " + username).writeLogs();
                     reader.Close();
                     FormAccueil formAccueil = new FormAccueil();
                     form.Hide();
@@ -40,6 +42,7 @@ namespace WindowsFormsApp1.Authentication
             MessageBox.Show("Connexion impossible, le mot de passe ou l'identifiant est incorrect.", 
                 "Erreur d'authentification", 
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            new Logs(Utils.Utils.GetTimestamp(DateTime.Now) + " - Interruption connexion utilisateur " + username + " Code d'erreur: Connexion impossible, le mot de passe ou l'identifiant est incorrect.").writeLogs();
             reader.Close();
             return false;
         }
@@ -57,7 +60,8 @@ namespace WindowsFormsApp1.Authentication
             MessageBox.Show("Connecté avec succès !",
                 "Authentification réussi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+
+
             command.ExecuteNonQuery();
 
         }

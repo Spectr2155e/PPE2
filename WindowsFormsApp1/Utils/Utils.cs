@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace WindowsFormsApp1.Utils
 {
@@ -44,6 +46,24 @@ namespace WindowsFormsApp1.Utils
             {
                 return false;
             }
+        }
+
+        public static int randomValue(int min, int max)
+        {
+            Random rnd = new Random();
+            return rnd.Next(min, max);
+        }
+
+        public static void sendAnEmailConfirmation(string mail, int code)
+        {
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("bekhtiricharderwann@gmail.com", "jbet ahdm mwzg fyaf"),
+                EnableSsl = true
+            };
+            client.Send("bekhtiricharderwann@gmail.com", mail, "test", "Votre code est celui-ci "+code);
+            Console.WriteLine("Sent");
+            Console.ReadLine();
         }
 
     }
