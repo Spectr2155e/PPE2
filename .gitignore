@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/WindowsFormsApp1/FormLogin.cs
+/WindowsFormsApp1/FormLogin.Designer.cs
+/WindowsFormsApp1/FormLogin.resx
