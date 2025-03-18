@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         static void Main()
         {
 
-            databaseManager = new DatabaseManager("PPE2", "root", "root");
+            databaseManager = new DatabaseManager("PPE2", "root", "");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

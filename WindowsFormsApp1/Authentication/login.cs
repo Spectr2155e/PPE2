@@ -56,7 +56,6 @@ namespace WindowsFormsApp1.Authentication
             command.Parameters.AddWithValue("timestamp", timestamp);
             command.Parameters.AddWithValue("id", id);
 
-            MessageBox.Show(sql);
             MessageBox.Show("Connecté avec succès !",
                 "Authentification réussi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
