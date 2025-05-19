@@ -159,6 +159,11 @@ namespace WindowsFormsApp1
 
         private void label5_Click(object sender, EventArgs e)
         {
+            if (textBoxLoginPassword.Text.Equals(""))
+            {
+                MessageBox.Show("Veuillez remplir la section nom d'utilisateur", "Problème", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             currentCode = Utils.Utils.randomValue(100000, 999999);
             currentMail = textBoxLoginUserName.Text;
             Utils.Utils.sendAnEmailConfirmation(textBoxLoginUserName.Text, currentCode);
