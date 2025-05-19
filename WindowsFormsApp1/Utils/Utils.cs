@@ -61,7 +61,7 @@ namespace WindowsFormsApp1.Utils
                 Credentials = new NetworkCredential("bekhtiricharderwann@gmail.com", "jbet ahdm mwzg fyaf"),
                 EnableSsl = true
             };
-            client.Send("bekhtiricharderwann@gmail.com", mail, "test", "Votre code est celui-ci "+code);
+            client.Send("bekhtiricharderwann@gmail.com", mail, "Changement de mot de passe code", "Votre code est celui-ci "+code);
             Console.WriteLine("Sent");
             Console.ReadLine();
         }
