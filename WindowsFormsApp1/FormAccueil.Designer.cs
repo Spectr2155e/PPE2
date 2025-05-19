@@ -64,14 +64,13 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MonCompte,
             this.panelAdministrateurToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,21 +80,21 @@
             this.testToolStripMenuItem,
             this.seDéconnecterToolStripMenuItem});
             this.MonCompte.Name = "MonCompte";
-            this.MonCompte.Size = new System.Drawing.Size(176, 38);
+            this.MonCompte.Size = new System.Drawing.Size(90, 20);
             this.MonCompte.Text = "Mon Compte";
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(517, 44);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.testToolStripMenuItem.Text = "Accéder à mes informations";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // seDéconnecterToolStripMenuItem
             // 
             this.seDéconnecterToolStripMenuItem.Name = "seDéconnecterToolStripMenuItem";
-            this.seDéconnecterToolStripMenuItem.Size = new System.Drawing.Size(517, 44);
+            this.seDéconnecterToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.seDéconnecterToolStripMenuItem.Text = "Se déconnecter";
             this.seDéconnecterToolStripMenuItem.Click += new System.EventHandler(this.seDéconnecterToolStripMenuItem_Click);
             // 
@@ -105,20 +104,20 @@
             this.gérerLesUtilisateursToolStripMenuItem,
             this.gérerLesOrganisationsToolStripMenuItem});
             this.panelAdministrateurToolStripMenuItem.Name = "panelAdministrateurToolStripMenuItem";
-            this.panelAdministrateurToolStripMenuItem.Size = new System.Drawing.Size(252, 38);
+            this.panelAdministrateurToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
             this.panelAdministrateurToolStripMenuItem.Text = "Panel administrateur";
             // 
             // gérerLesUtilisateursToolStripMenuItem
             // 
             this.gérerLesUtilisateursToolStripMenuItem.Name = "gérerLesUtilisateursToolStripMenuItem";
-            this.gérerLesUtilisateursToolStripMenuItem.Size = new System.Drawing.Size(390, 44);
+            this.gérerLesUtilisateursToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.gérerLesUtilisateursToolStripMenuItem.Text = "Gérer les utilisateurs";
             this.gérerLesUtilisateursToolStripMenuItem.Click += new System.EventHandler(this.gérerLesUtilisateursToolStripMenuItem_Click);
             // 
             // gérerLesOrganisationsToolStripMenuItem
             // 
             this.gérerLesOrganisationsToolStripMenuItem.Name = "gérerLesOrganisationsToolStripMenuItem";
-            this.gérerLesOrganisationsToolStripMenuItem.Size = new System.Drawing.Size(390, 44);
+            this.gérerLesOrganisationsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.gérerLesOrganisationsToolStripMenuItem.Text = "Gérer les organisations";
             this.gérerLesOrganisationsToolStripMenuItem.Click += new System.EventHandler(this.gérerLesOrganisationsToolStripMenuItem_Click);
             // 
@@ -226,7 +225,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "FormAccueil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAccueil";

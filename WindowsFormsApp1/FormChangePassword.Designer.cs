@@ -40,9 +40,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(333, 160);
+            this.textBox1.Location = new System.Drawing.Point(166, 83);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 31);
+            this.textBox1.Size = new System.Drawing.Size(152, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -63,17 +64,19 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(333, 250);
+            this.textBox2.Location = new System.Drawing.Point(166, 130);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 31);
+            this.textBox2.Size = new System.Drawing.Size(152, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(904, 25);
+            this.label1.Size = new System.Drawing.Size(441, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Vous avez reçu un code par mail veuillez saisir le code et insérer le mot de pass" +
     "e juste après";
@@ -81,9 +84,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 132);
+            this.label2.Location = new System.Drawing.Point(208, 69);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 25);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Code à saisir";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -91,18 +95,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(369, 222);
+            this.label3.Location = new System.Drawing.Point(184, 115);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(233, 25);
+            this.label3.Size = new System.Drawing.Size(117, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nouveau mot de passe";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(404, 339);
+            this.button1.Location = new System.Drawing.Point(202, 176);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 47);
+            this.button1.Size = new System.Drawing.Size(76, 24);
             this.button1.TabIndex = 6;
             this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,9 +116,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(811, 372);
+            this.button2.Location = new System.Drawing.Point(406, 193);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 47);
+            this.button2.Size = new System.Drawing.Size(76, 24);
             this.button2.TabIndex = 7;
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = true;
@@ -120,9 +127,9 @@
             // 
             // FormChangePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 450);
+            this.ClientSize = new System.Drawing.Size(503, 234);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -130,6 +137,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "FormChangePassword";
             this.Text = "FormChangePassword";
             this.ResumeLayout(false);
